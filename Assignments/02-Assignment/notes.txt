@@ -1,0 +1,52 @@
+
+1. NPM: It's a package manager and standard repository for all athe packages.all the packaes and utilty that we need comes from NPM.
+
+2. Package.json : it's a configuration of npm. 
+
+3. Bundler: before sending the code to production it needs to minified, optimized, compress, cached to make it production ready.It Bundles our app so that our app can be shipped to the production.
+            create react app behind the scene uses webpack bundler.
+
+4. Dev dependencies vs Production dependencies
+
+   dev dep requires in development phase it contains tool, warnings for debigging.
+   Production dep 
+
+5. ^ and ~ : 
+   "^" -install if there minor update packages.
+   "~" -install if there major update in the packages. (not a good practice it might break your app).
+
+
+6. Package.lock.json: it keeps the track of exact version that has been installed.
+
+7. hash is to verify the version local and the production is same.
+
+8. node_modules (database for our app) : contains all the code that we fetched from the npm.
+
+9. transitive dependencies: ex : parcel can have its own dependencies.
+   one dependency can have other dependencies that is called transitive dependency.
+
+10. parcel -  budleer
+
+- DEv build 
+- Local server
+- HMR - Hot Module Replacement
+- File watching algorithm - written in c++
+- Caching - faster builds
+- Image optimization
+- Minification
+- Bundling
+- Chunking
+- Compressing
+- Consistent hashing 
+- Code splitting
+- Differential Bundling
+- Diagnostic
+- Error handling
+- Reliable Caching
+- Tree Shaking (will remove unused code)
+- Native performance
+- HTTPS Module
+- Different dev and Production budler
+
+
+
