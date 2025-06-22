@@ -1,0 +1,55 @@
+Theory-
+
+* What is Emmet?
+  - Emmet is a plugin that helps write HTML and CSS faster using short abbreviations    that expand into full code, improving devloper efficiency.
+
+* Difference between a library and Framework.
+  
+  1. control : We call a library, but Framework calls our code.
+  2. usage : Library can be used in small parts of project; a Framework defines the app's structure.
+
+* What is CDN? Why do we use it ?
+  CDN is a Content Delivery Network. It hosts files like CSS/J on global servers and helps load content faster without storing files locallly.
+
+  we use it load files faster from nearby servers.
+  and to reduce on our own server and improve performance.
+
+
+* Why is React known as React?
+  React is named for it's ability to react and update the UI instantly when data changes.
+
+* What is crossorigin in script tag?
+ - It helps load scripts from other domains by bypassing CORS restriction safely.
+
+* What is difference between React and ReactDOM.
+ - React is core library for building components.
+ - ReactDOM handles updating and rendering those components into the browser DOM.
+
+* What is difference between react.develpment.js and react.production.js files via CDN?
+ 
+ -react.develpment.js includes extra tools and earnings for debugging.
+ -react.production.js is optimized and smaller, with unused code removed for faster   loading.
+
+What is Async and defer.
+
+Async
+- loads te scripts asynchronously and runs ig as soon as it's ready, without waiting for the HTML to finish parsing 
+-HTML Parsing pauses when script is found, script loads in parallel, then executes immediately, then parsing resumes.
+
+when to use: for independent scripts that don't rely on others and don't affect page structure.
+
+
+
+defer
+
+-Loads the script asynchronously but waits to run it until after the HTML is fully parsed.
+-HTML parses fully, script loads in parallel, then all defered scripts execute after parsing.
+
+when to use: for scripts that need the full HTML to be parsed before running, like most app scripts.
+
+
+
+
+
+  
+
