@@ -1,0 +1,86 @@
+● What is Monolith architecture?
+  Monolith architecture is a traditional way of building applications where the entire app is developed and deployed as a Single Unit. including , UI , backend and database logic all together.
+
+
+● What is a Microservice?
+  Microservices architecture is a way of building applications by breaking them into small independent services, where each service handles a specific responsibility.
+  Each Microservice can be developed. deployed, maintained separately.
+  It follows the Single Responsibility Principle and Separation of Cencerns.
+
+● What is the difference between Monolith and Microservice?
+  Monolith architecture                     Microservice architecture
+ -Single unified application structure.     Divided into small independent services.
+ -Built and deployed as a one Unit.         Each service can be deployed and developed 
+                                            separately.
+ -Harder to scale.                          Easy to scale.
+ -One failure can affect the whole app      Failure in one service doesnt crash the 
+                                            whole app    
+ -slower deployement time.                  Faster. 
+ - suitable for small to medium size apps   for large, complex or enteprise level apps.
+
+● Why do we need a useEffect Hook?
+  We need useEffect when we want to run some code after the component renders.
+  It accepts a callback function, and that function runs after the render, not during it.
+  It's commonly used for things like:
+  - API calls
+  - Setting up event listeners.
+  - Updating the DOM.
+  - Cleaning Up (like unsubscribing.)
+
+
+● What is Optional Chaining?
+ Optinal chaing is a feature in Javascript that lets us safely access nested object ot array properties, without getting an error if something is undefined or null.
+
+ It prevents app crashes when data is missing. Very useful when working with API's or optional data. 
+
+ - without optional chaining it can throw error if data is missing.
+ - with Optional chaining it returns undefined.
+
+● What is Shimmer UI?
+ - Shimmer UI is a type of skeleton screen - a placeholder layout that looks like the actual content but with animated gray blocks.
+ We use it while data is loading, instead of a spinner or loader, to make I feel faster and smoother.
+
+● What is the difference between JS expression and JS statement.
+  JS expression produces a value. for example 5 + 3, "hello".length, x * 5.
+  - a piece of code that returns a value
+
+  JS statement performs an action.
+   a full insturction that tells JS to do something.
+
+
+  if(x < 2) {...do this} , for (i=2, i<=2, i++) {...} , let a=10;
+
+  expression can be used inside JSX. statements cannot be used .
+
+● What is Conditional Rendering, explain with a code example.
+  Conditional Rendering means showing different UI based on certain conditions.
+  - If data is still loading, show Shimmer UI.
+  - If data is available, show the actual component.
+
+  {data.length ===0 ? <ShimmerUI/>: <Component/>}
+  {isLogin ? <LogoutBtn/> : <LoginBtn/>}
+
+● What is CORS?
+  CORS is Cross-Origin Resource Sharing.
+  it's a secuirity feature built into browsers.
+  It's a browser secuirity rule that controls whether one website can access data from another.The server must allow it explictly.
+
+● What is async and await?
+  -Fetch method returns a promise . it then resolves the Promise for any valid HTTP response. .then() and catch()-> and async await handle promises. 
+  but async await makes the code cleaner and easier to read 
+
+  const fetchData = async ()={
+
+    const response = await fetch (API_URL);
+    const data = await response.json();
+
+    console.log()
+
+  }
+
+
+● What is the use of `const json = await data.json();` in getRestaurants()
+
+The API sends a JSON string
+
+response.json() parses it into a JavaScript object.

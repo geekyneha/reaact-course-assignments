@@ -1,0 +1,30 @@
+06- Exploring the World.
+
+1. Monolithic Architcture.
+
+
+2. Microservice Architcture
+
+
+3. When to make an API call
+
+  2 ways 
+  - page load -> Make API call and wait for Data -> render the UI.
+
+  - page loads -> render the UI(shimmer UI) -> make API call -> Re render (Better Approach and UI experience)
+
+4. useEffect Hook:
+   -  It takes two arguments: a function and an array of dependencies.
+   The function is executed after the component renders, and the dependencies array determines when the effect should be re-run.
+  If the dependencies array is empty, the effect runs only once after the initial render.  
+
+5. Fetch Promise.
+
+  
+6. CORS Policy: our browsers block us to call API from one origin to different origin.
+
+ How can we bypass this CORS.CORS chrome extension.
+
+
+
+
