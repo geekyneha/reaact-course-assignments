@@ -1,0 +1,149 @@
+Chapter 08: Let's get Classy. 
+
+
+
+
+1. How do we create Nested routes react-router configuration.
+
+   To create nested routes in react-router we define child routes inside a parent using the chilren property.
+
+   expmple 
+
+   import {createBrowserRouter , RouterProvider } from 'react-router';
+
+   const router = createBrowserRouter ([
+    {
+        path:'/'
+        element:<AppLayout/>,
+        children :[
+            {
+                path: '/about',
+                element: <About/>
+
+            },
+            {
+                path: '/contact',
+                element: <Contact/>
+
+            }
+        ]
+    }
+   ])
+
+
+
+   <RouterProvider router = {router} />
+
+
+
+
+2. What are creatHashRouter and createMemoryRouter ?
+
+- creatHashRouter
+ Uses the URL hash (#) to simulate routing.
+ useful for static file hosting like Github Pages.
+
+
+-createMemoryRouter .
+-Keeps the route in memory only (doesn't touch the URL).
+
+Used mostly for testing or native apps.
+
+
+
+
+3. Order of Life cycle method.
+
+        Mounting phase
+        1.constructor 
+        2. render (dummy)
+        3. componentDidMount();// or child mounting phase...
+
+
+        Updating phase.
+        1. render();
+        2. updates the DOM(with actual data).
+        3. componentDidUpdate();
+
+        Unmounting Phase.
+
+        1. componentWillUnmount();
+
+
+
+
+3. why do we use componentDidMount();
+
+  It is called once after the componet is rendered on the screen.
+
+  used for API calls 
+  setting up subscription or listener
+
+example:
+
+ componentDidMount(){
+    fetchData();
+ }
+
+
+
+
+
+
+5. Why do we use componentWillUnmount();
+
+It runs just before a component is removed from the DOM.
+
+Used to : Clean up timers, intervals, or eventListeners.
+
+Example : 
+
+componentWillUnmount(){
+    clearInterval(this.timer);
+    window.removeEventListner('scroll',this.handleScroll);
+   
+}
+
+
+
+
+Why do we use super(props) in constructor.
+
+In a class component , we must call super(props) to access this.props inside the constructor.
+
+constructor(props){
+    super(props);
+}
+if you skip super(props), accessing this.props inside constructor will throw an error.
+
+
+
+
+
+7. Why can't the useEffect callback be async?
+
+
+The function passed to useEffect should return either nothing or a cleanup function, not a Promise.
+
+An async function always returns a Promise, which React doesn't handle in useEffect.
+
+❌ This is wrong:
+
+js
+
+useEffect(async () => {
+  await fetchData();
+}, []);
+
+
+✅ Correct way:
+
+js
+
+useEffect(() => {
+  const getData = async () => {
+    await fetchData();
+  };
+  getData();
+}, []);
+

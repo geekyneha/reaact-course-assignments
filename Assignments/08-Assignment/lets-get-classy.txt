@@ -1,0 +1,282 @@
+Functional based Component
+Normal JS function
+- create an arrow function name the component which will return a piece of jsx
+- export that component and import 
+- export import is same
+- passing props to component is same
+- will pass props to component same .
+  will recieve as an argument. 
+
+
+const FunctionalComponent=({name,location})=>{
+
+    const [count, setCount] = useState(0);
+    return (
+        <>
+          <h1>{name}</h1>
+          <h2>{count}</h2>
+          <button onClick={()=>setCount(count + 1)}>Increment</button>
+          <h1>{location}</h1>
+        </>
+    )
+ } 
+
+export default FunctionalComponent;
+
+
+// API calls
+useEffect : 
+
+we use useEffect cause we want to quickly render our component and then make an API call and fill the render.
+
+
+  useEffect(()=>{
+   const timer = setInterval (()=>{
+     console.log('hello');
+
+    },1000);
+    
+    //  this will get called when unmounting . leaving the component or page.
+    return (()=>{
+      clearInterval(timer);
+    })
+
+  },[])
+
+  
+
+Class Based Component
+Normal JS Class
+- export import is same
+- passing props to component is same.
+  for passing props we need a constructor. this will recieve props before render method.
+  and also write super keywork and props-important - super(props).
+  we will always have to use this keyword inside a class
+  why do we write super props.
+  
+  when the instance of the class is created constructor get called. and it will extract the props and can be used anywhere in the component.
+
+import React from 'react'
+class UserClass extends React.Component{
+
+  constructor(props){
+    super(props);
+  }
+
+
+    render(){
+        const {name, location} = this.props.
+        returns (
+            <>
+            <h1>Class based</h1>
+            <p>name:</p>
+            <p>location:</p>
+            </>
+        )
+    }
+
+}
+
+How we can create state variables insiade our component.
+
+we use this.state is a big object.
+inside the constructor cause whenever the class instance is create a constructor get called.
+
+// creating state variables
+this.state={
+    count:0,
+};
+
+to use we write : this.state.count
+or can destructure : const {count} = this.props
+
+// updating state variables
+we cannot do -> this.state.count = this.state.count + 1
+
+
+//NEVER UPDATE STATE VARIABLES DIRECTLY//
+we can not modify them directly.
+
+
+React gives access to an important varibale setState
+which takes object. object will contain update value of the state variable
+this.setState({
+ count: this.state.count + 1;
+});
+
+
+Life Cycle 
+
+- mounting =~ loading
+
+When the class based component is mounted an instance of the class is created.
+class loads--> creating new instance of the class
+
+whenever the class is instantiated the constructor is called.
+then render is called.
+
+life Cycle
+(1) constructor.
+(2) Render method.
+(3) componenDid Mount method will get called
+
+so if theres parent and child component.
+
+parent will start its life cycle method and if theres a child it will trigger its life cycle method and will come back to its own and then once the child mounted successfully  parent will complete its mounting. and its Did mount will get called.
+
+componentDidMount(){
+    console.log("mounted");
+}
+
+
+***comonentDidMount is  use to make API calls.***
+
+
+Thinking ....
+
+/*Parent constructor
+Parent render
+
+    First child constructor
+    First child render
+    First child component Did Mount
+
+    Second child constructor
+    Second child render
+    Second child component Did Mount
+
+Parent Component Did Mount.
+*/ BUT THIS IS WRONG
+
+
+why.. becuase React optimizes .
+
+
+And when the Component is mounted It mounts in 2 phases.
+
+- Render.
+    constructor
+    render.
+- Commit Phase.
+    React Updates Dom 
+    comonentDidMount
+
+
+
+** React will batch the render phase of child  and commit phase of child. **
+
+Parent render
+
+    First child constructor
+    First child render // render phase
+    
+
+    Second child constructor 
+    Second child render // render phase
+    
+    <DOM Updated - IN Single Batch/>
+
+    // Commit
+    First child component Did Mount
+    Second child component Did Mount
+
+Parent Component Did Mount.
+
+when we are loading our component .
+DOM Manipulation is very very expensive. It will trigger the renconcilliation.
+will find the differnce and update.
+ because render phase isvery fast.
+ commit takes time.
+
+
+ How to make an API call inside a component.
+
+ make componentDidMount async
+
+ COMPONENT LIFE CYCLE
+ /***
+ * ----MOUNTING LIFE CYCLE----
+ * constructor
+ * render (dummy data )
+ *   <Html Dummy/>
+ *
+ * componetDidMount
+ *        <Api call>
+ *         <this.setState>
+ *
+ *
+ * ##setState triggers the reconciliation phase
+ * ----UPDATING LIFE CYCLE----
+ *
+ * constructor
+ *   render(Api data)
+ *   <Html (new Api data)>
+ *
+ * componentDidUpdate
+ *
+ * ## mounting means showing on to the UI
+ * ## updating means updating the UI
+ * ## unmounting means removing from the UI
+ * 
+ *  
+ *-----Unmounting Life Cycle----
+ *
+ * when we remove the component from the UI
+ * componentWillUnmount
+ *
+ *
+ *
+ *
+ *
+ */
+
+ NEVER EVER COMPARE REACT CLASS LIFECYCLE WITH FUNCTIONAL COMPONENT.
+
+ // after the state changes.   
+
+   componentDidUpdate(prevProps, prevState) {
+    console.log("child component Did Update");
+    if(this.state.count !== prevState.count)
+   
+    {
+      // code.
+    }
+
+     ... 
+      if(this.state.count !== prevState.count)
+   
+    {
+      // code.
+    }
+   }
+
+Component will unmount will get called when we leave the page basically component . its SPA
+
+There are a lot of things we need to clear when leaving the page.
+
+
+Examples .
+
+componentDidMount() {
+
+    this.timer = setInterval(() => {
+      console.log("hello");
+    }, 1000);
+}
+It will get called even if leave the component beacause we have SPA.
+everytime coming to the page it creates new set interval.
+
+when you create the mess you have to clean that also..
+
+// Performace loss
+
+COMPONENT WILL UNMOUNT..
+ we will clear interval in will unmount.
+ clearInterval();
+ 
+// how to refernece .. 
+  this. -> this is shared between all these functions of the class
+  componentWillUnmount() {
+      clearInterval(this.timer);
+
+  }
