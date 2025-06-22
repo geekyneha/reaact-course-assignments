@@ -1,0 +1,42 @@
+Assignment 07- Finding the path
+
+* What are various ways to add images to our app? explain with code examples.
+ 1. importing the image:
+    import {logo} from './assests/logo.png';
+
+    <img src={log} alt="logo"/>
+
+ 2. using public folder.
+     <img src='./logo.png' alt="logo"/>
+
+ 3. using a URL
+     <img src'http://image.png' alt="logo"/>
+
+* What would happen of we do console.log(useState());
+  It return the array with two item 
+  - The state variable.
+  - The setter function.
+
+  console.log(useState()); // [underfined,f]
+
+* How will useEffect behave if we don't add a dependency array.
+  The callback function will get called after every render. which may lead to unnecessary API calls or performance issues.
+  useEffect(()=>{
+    //This gets run after every render.
+  });
+
+* what is SPA(Single Page Application).
+  An SPA is an app that doesn't reload the page when you navigate.
+  React apps are SPAs .They update the UI by changing components, not pages.
+  - No full page reload.
+  - faster , smoother experience.
+
+* Different between client side routing and server-side routing
+  client-side Routing             server-side Routing.
+  - NO page reload. Js handels     Full page reload for each request.
+    routing
+  - ex. React Router               - Traditional apps. (PHP,JSP,etc.)
+  - Changes components in the same - Server sends a new HTML page on each req. 
+   page        
+
+  // 

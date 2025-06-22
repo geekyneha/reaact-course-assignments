@@ -1,0 +1,31 @@
+Episode 07: Finding the path.
+ Notes
+useEffect:
+
+-if theres no dependency array useEffect get called after every render.
+-if empty dependency array . it get called after initial render.
+-if dependency array , it will get called for each update of that perticular dependency.
+
+useState : don't use inside a condition, loops ore fucntions.
+           create inside the component and on higher level.
+           used to create local state variables inside the component.
+
+
+React Router :
+
+- npm i react-router        
+- createBrowserroute .. wihich takes array of objects.
+- these objects will contain path and element.
+  const router = createBrowserRouter([{},{}])
+- RouterProvider : its a component in which we pass the router.
+- Error ELement : we can also show error component for the pages doesnt exist.
+- path : define te path "/about"
+- element : show component on that path.
+
+- children: we generally keep our header intact and rest components as childeren.
+- Outlet : react router provides outlet which get replaced by the respective childeren    based on path
+
+
+      
+
+             
