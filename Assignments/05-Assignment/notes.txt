@@ -1,0 +1,46 @@
+Lets Get Hooked
+
+- Types of import and export.
+    ->default import/export.
+     ONE FILE CAN HAVE ONLY ONE DEFAUlT EXPORT.
+
+     component or variable.
+
+     import name from 'path';
+     export default name;
+
+    ->named import/export.
+     import {name} from 'path';
+     export name;
+
+
+-> React is fast in DOM manipulation '
+
+Data layer and UI layer should work with each other in sync. 
+If data layer changes . UI should change automtically.
+
+Ui should update with data.
+
+Normal JS variable.
+
+const myVar = "";
+
+superpowerful variable / state variable.
+
+We use HOOKS!!!!
+
+is just a normal js function which is given to us by react.
+
+# Normal JS Utility function.
+
+useState():
+ to generate State variable in react.
+
+ whenever a state variable changes react re render its component
+
+useEffect(): useEffect is react Hook .\
+ it takes two arguments.
+
+ a call back function.
+ a dependency array.
+

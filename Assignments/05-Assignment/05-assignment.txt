@@ -1,0 +1,57 @@
+Ep 05: Let's get Hooked!
+
+
+● What is the difference between Named Export, Default export and * as export?
+
+Default Export:
+
+Only one per file
+
+Import like:
+import Something from './file'
+
+Named Export:
+
+You can export multiple things by name
+export const myFunc = () => {}
+Import like:
+import { myFunc } from './file'
+
+* as Export:
+
+Import everything from a file as an object
+import * as Utils from './file'
+Then use like: Utils.myFunc()
+
+
+● What is the importance of config.js file.
+  Importance of config.js file
+Holds app-wide constants like URLs, API keys, or settings
+
+Makes the code cleaner and easier to update
+
+Useful for managing environments (like dev, prod)
+
+● What are React Hooks?
+  React Hooks are normal Javascript function.Provided by react written by facebook developers.(utility functions).
+
+  let you use features like state and lifecycle in functional components.
+
+● Why do we need a useState Hook?
+ Whenever there's a change in UI or data, it needs to be reflected on the screen. But a normal JavaScript variable won't trigger a re-render — it updates the value, but the UI won’t show the change.
+
+This is where useState comes in. It gives us:
+
+A state variable to store data
+
+A setter function to update it
+
+When we use useState, React tracks the state. So when we call the setter function, React triggers the reconciliation cycle, re-renders the component, and the new value shows up in the UI.
+
+Even though we define the variable using const, like this:
+
+js
+Copy
+Edit
+const [state, setState] = useState(initialValue);
+…it still changes because React handles that internally. After the component re-renders, the updated value is assigned to state again — which makes it look like a constant is changing, but it's actually being re-initialized on every render.
