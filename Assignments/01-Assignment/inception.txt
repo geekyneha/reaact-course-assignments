@@ -1,0 +1,31 @@
+
+
+1. Emmet : It generates some code for you. It makes developer experience smooth and easy.
+
+2. CDN: Content Delivery Network. a website where things are hosted.
+
+3. Cross Origin : 
+
+4. React an React DOM :
+
+5. DOM manipulation: 
+
+  createElement takes three argumenets 
+ - name of the tag.
+ - attribute as an object.
+ - inner text or other tags(in array if multiple).
+
+6. Library: Libary can be used in small part ofthe project.
+
+7. Framework: unlike library we have to follow a structure and project/app will build    top of that.
+
+what we have learn
+
+- How we can write a small hello world program using HTML.
+- How we can write same hello world program using Javascript.
+- How we can Inject react into our code using CDN.
+- How to create an React Element(Object) (createElement, createRoot, .render).
+- 
+
+
+   
