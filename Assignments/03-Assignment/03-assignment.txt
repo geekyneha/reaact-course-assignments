@@ -1,0 +1,37 @@
+Episode 03 - Laying the Foundation.
+
+Assignment
+● What is JSX?
+- JSX stands for JavaScript XML. It lets us write HTML-like code inside JavaScript.
+  Browsers don’t understand JSX directly, so a transpiler like Babel converts it into regular JavaScript that the browser can run.
+
+● Superpowers of JSX
+
+- We can use {} tp write JavaScript inside JSX.
+- It Prevents XSS (cross-site-scripting). JSX escapes any malicious code, so it won't run harmful scripts. making it secure by deafult.
+- JSX sanitizes and escapes dynamic values before ading them to the dom.
+- JSX makes your UI code easier by combining and HTML structure and JS logic in one place.
+- JSX works great with React component
+
+● Role of type attribute in script tag? What options can I use there?
+type in <script> tells the browser what kind of script it is.
+
+text/javascript → Default JS
+
+module → For modern JS with import/export
+
+importmap → To map custom module paths
+
+Other types like application/json → Just for storing data, not running code.
+
+
+
+● {TitleComponent} vs {<TitleComponent/>} vs
+{<TitleComponent></TitleComponent>} in JSX
+
+
+| Syntax                                | Meaning                                |
+| ------------------------------------- | -------------------------------------- |
+| `{TitleComponent}`                    | Refers to the component (not rendered) |
+| `{<TitleComponent />}`                | Renders the component                  |
+| `{<TitleComponent></TitleComponent>}` | Same as above (with/for children)      |

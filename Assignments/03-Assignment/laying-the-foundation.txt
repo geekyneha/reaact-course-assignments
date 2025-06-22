@@ -1,0 +1,54 @@
+Chapter 03 - Laying the Foundation
+Topics
+● JSX
+● React.createElement vs JSX
+● Benefits of JSX
+● Behind the Scenes of JSX
+● Babel & parcel role in JSX
+● Components
+● Functional Components
+○ Composing Components
+
+
+Scripts:  Insted of writing long command we can write scripts.
+ to start the project we can simply write
+ "start": "parcel index.html",
+ "build": "parcel build index.html"
+ 
+
+JSX: JSX is an object and HTMl like code that gets traspiled into pure Javascript tat can e understable by browsers engine using Babel.
+It allows us to write HTML-like code inside JS.
+
+
+Babel: It is a transpiler or Compiler that transpile JSX into react Element which is understandable by JS engine.
+
+
+Extensions:  Pettier code formatter
+
+
+Components: 
+- Class-based components : Old way of writing code 
+- Functional-based components : New way of writing code.
+
+* React Functional Components -> 
+  Just a normal Js function 
+  Name it with a capital later 
+
+  const fn = () => true;
+  const fn2 = () =>
+  {
+    return true;
+ }  these are same. 
+
+
+Cross-site Scripting.
+JSX takes care of injection attack.
+JSX won't blindly run data. It could be malicious daata. It sanitizes that data and wil escape that data. and prevents Cross-site-Scripting.
+
+
+-we can write any Javascript in JSX inside braces. like {100+2}
+
+One of the same thing.
+ {Title()}
+ <Title/>
+ <Title></Title>
