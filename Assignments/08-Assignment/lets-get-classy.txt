@@ -6,7 +6,7 @@ Normal JS function
 - passing props to component is same
 - will pass props to component same .
   will recieve as an argument. 
-
+ 
 
 const FunctionalComponent=({name,location})=>{
 
@@ -24,7 +24,7 @@ const FunctionalComponent=({name,location})=>{
 export default FunctionalComponent;
 
 
-// API calls
+// API calls in
 useEffect : 
 
 we use useEffect cause we want to quickly render our component and then make an API call and fill the render.
