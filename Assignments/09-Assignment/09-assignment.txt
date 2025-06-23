@@ -1,0 +1,50 @@
+Chapter 09: Optimizing Our App.
+
+When and why do we need lazy()?
+We use lazy() for code splitting . It loads components only when they are needed, instead of loading evrything upfront.
+- it improves performace.
+- reduces initial laod time.
+- Helps in large apps with many routes or components.
+
+const About =  lazy(()=>import('path));
+
+
+What is suspense?
+Suspense is a React component used to wrap a lazy loaded component. It shows a fallback UI (like a loader) unitl the actual component is loaded.
+
+Why we get error. A component suspended while responding to synchronous input. This will cause the UI to be replaced with a loading indicator. TO fix,updates rgar suspend should be wrapped with start transition? How does suspense fix this error?
+
+This Happens when a lazy-loaded component takes time to load, but React expects the update to be instant (sync) like during input and click.
+
+To fix this, wrap the update using:
+
+js
+startTransition(() => {
+  // your update or route change
+});
+This tells React: "This is not urgent — you can show fallback while it's loading."
+
+Advantages and disadvantages of using code splitting pattern.
+
+
+
+Advantages.
+
+    Faster initial load
+    Only loads code when needed (on demand)
+    Makes large apps smoother.
+
+Disadvantages.
+
+    Slight delay when swithing to new components.
+    More complexity (need to use lazy, Suspense and handle errors)
+    May cause loading flicker if not handled well.
+
+When do we and why do we need suspense?
+
+We use Suspense when we're using lazy(); to dynamically load components It helps us:
+
+    Show a loader (fallback) during loading time.
+    Prevent the UI form crashing.
+    Improve UX whlie loading chunks of the app.
+
