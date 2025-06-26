@@ -1,0 +1,43 @@
+Chapter 11: Data is the new Oil.
+
+Theory :
+
+What is prop drilling?
+
+    -Props drilling happens when you pass data from a parent component to a deeply nested child component through multiple intermediate components, even if those intermediate components don't the data .
+    For example, if a parent wants to pass data to a grandchild, It must first send it to the child, and then the child passes it to the grandchild. This process becomes messy and harder to maintain as our app grows. To avid unnecessary prop drilling, React Provides the Context API which allows you to share data across the component tree without passing props manually.
+
+    It's called 'Prop drilling' because you are literally drilling props down through each layer of the component tree.
+
+    This can lead to :
+    -Cluttered code.
+    - unnecessary re-renders
+    -components receiving props they dont need.
+
+What is lifting the state up?
+    - When two or more components need to share the same state, we move that state up to their common parent.
+    that parent holds the state and passes it down via props.
+
+    Child becomes a controlled component and doesn't manage its own state.
+
+
+
+What is Context Provider and Context Consumer?
+
+    Context Provider":
+        Provides(sends) the data to the component below it.
+        <MyContext.Provide value={data}>
+        <Child/>
+        </MyContext.Provide>
+
+    Context Consumer / useContext.
+
+    Let's you read the value from the provider in any child componet.
+
+    const data = useContext(MyContext);
+    
+
+If you don't pass a value to the provider does it take the default value?
+
+    Yes, If no value is passed to the provider, components using the context will receive the default value that was set when creating the context.
+
